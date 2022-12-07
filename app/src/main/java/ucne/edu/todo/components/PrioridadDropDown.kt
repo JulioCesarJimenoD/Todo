@@ -88,11 +88,11 @@ fun PrioridadDropDown(
             expanded = expandir,
             onDismissRequest = { expandir = false }
         ) {
-            Prioridad.values().slice(0..2).forEach { priority ->
+            Prioridad.values().slice(0..2).forEach { prioridad ->
                 DropdownMenuItem(
                     onClick = {
                         expandir = false
-                        onPrioridadSelecion(priority)
+                        onPrioridadSelecion(prioridad)
                     }
                 ) {
                     ItemPrioridad(prioridad = prioridad)
