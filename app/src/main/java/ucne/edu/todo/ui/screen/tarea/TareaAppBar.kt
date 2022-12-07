@@ -180,7 +180,7 @@ fun ExistingAppBarPreview() {
             id = 0,
             nombre = stringResource(id = string.title),
             descripcion = stringResource(id = string.description),
-            prioridad = Prioridad.BAJO
+            prioridad = Prioridad.ALTO
         ),
         navigateToListaScreen = {}
     )
