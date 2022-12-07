@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Todo</string>
+
+    <string name="to_do_logo">To-Do Logo</string>
+    <string name="add_button_icon">Agragar Button</string>
+
+    <string name="tarea">Tareas</string>
+
+    <string name="search_tasks_icon">Buscar Tareas</string>
+    <string name="sort_actions_icon">Sort Tasks</string>
+    <string name="delete_all_action">Borrar todo</string>
+    <string name="search_icon">Icono Buscar</string>
+    <string name="search">Buscar</string>
+    <string name="close_icon">Icono cerar</string>
+
+    <string name="sad_face_icon">Sad Face Icon</string>
+
+    <string name="empty_content">No hay tarea</string>
+
+    <string name="title">Nombre</string>
+    <string name="description">Descripcion</string>
+
+    <string name="add_task">Agregar Tarea</string>
+    <string name="add_action">Agregar Action</string>
+    <string name="back_arrow">Atra Arrow</string>
+    <string name="delete_icon">Dorrar Icon</string>
+    <string name="update_icon">Actualizar Icon</string>
+    <string name="drop_down_arrow_icon">Icono de flecha desplegable</string>
+
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+
+    <string name="delete_task">Eliminar \'%1$s\'?</string>
+    <string name="delete_task_confirmation">Estás seguro de que desea eliminar \'%1$s\'?</string>
+    <string name="delete_all_tasks">Quitar todas las tareas?</string>
+    <string name="delete_all_tasks_confirmation">Está seguro de que desea eliminar todas las tareas? No hay vuelta atrás después de esta acción.</string>
+
+</resources>
