@@ -4,6 +4,8 @@ buildscript {
         hilt_version = '2.38.1'
         room_version = '2.4.2'
         lifecycle_runtime='2.3.1'
+        retrofit_version="2.9.0"
+
     }
     repositories {
         google()
