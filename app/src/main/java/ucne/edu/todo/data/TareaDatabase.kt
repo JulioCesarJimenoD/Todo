@@ -11,5 +11,5 @@ import ucne.edu.todo.data.models.Tarea
     exportSchema = false)
 
 abstract class TareaDatabase: RoomDatabase() {
-    abstract fun tareaDao(): TareaDao
+    abstract val tareaDao: TareaDao
 }

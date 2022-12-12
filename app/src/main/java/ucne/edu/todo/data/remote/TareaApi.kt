@@ -1,27 +1,25 @@
 package ucne.edu.todo.data.remote
 
 import androidx.room.Dao
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 import ucne.edu.todo.data.models.Tarea
 import ucne.edu.todo.data.remote.dto.TareaDto
 
 @Dao
 interface TareaApi {
 
-    @GET("/Tarea/GetTarea")
+    @GET("/Agenda/GetAgenda")
     suspend fun getAll(): List<TareaDto>
 
-    @GET("/Tarea/GetTarea{id}")
+    @GET("/Agenda/GetAgenda(id}")
     suspend fun getByid(@Path("id") id: String): TareaDto
 
-    @PUT("/Tarea/PutTarea{id}")
+    @PUT("/Agenda/PutAgenda{id}")
     suspend fun update(@Path("id") id: String, @Body tarea: TareaDto): TareaDto
 
-    @POST("/Tarea/PostTarea")
+    @POST("/Agenda/PostAgenda")
     suspend fun insert(@Body tarea: TareaDto): TareaDto
 
+    @DELETE("/Agenda/Delete{id}")
+    suspend fun delete(@Path("id") id :String):TareaDto
 }

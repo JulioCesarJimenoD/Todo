@@ -13,7 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import ucne.edu.todo.data.TareaDatabase
 import ucne.edu.todo.data.remote.TareaApi
-import ucne.edu.todo.utils.Constante.DATABASE_NAME
+import ucne.edu.todo.data.repositories.Api_Repository.TareaApiRepository
 import javax.inject.Singleton
 
 @Module
@@ -23,17 +23,14 @@ object DataModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(
-        @ApplicationContext context: Context
-    ) = Room.databaseBuilder(
-        context,
-        TareaDatabase::class.java,
-        DATABASE_NAME
-    ).build()
+    fun provideDatabase( @ApplicationContext context: Context): TareaDatabase{
+        return Room.databaseBuilder(
+            context,
+            TareaDatabase::class.java,
+            "ToDo_db"
+        ).fallbackToDestructiveMigration().build()
+    }
 
-    @Singleton
-    @Provides
-    fun provideDao(database: TareaDatabase) = database.tareaDao()
 
     @Singleton
     @Provides
@@ -46,14 +43,18 @@ object DataModule {
 
     @Singleton
     @Provides
-    fun providesTareaApi(moshi: Moshi): TareaApi {
+    fun providesAgendaApi(moshi: Moshi): TareaApi {
         return Retrofit.Builder()
-            .baseUrl("http://www.todoapp.somee.com")
+            .baseUrl("todoapp.somee.com")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(TareaApi::class.java)
     }
 
-
+    @Singleton
+    @Provides
+    fun ProvideTareaRepository(tareaDatabase: TareaDatabase): TareaApiRepository {
+        return TareaApiRepository(tareaDatabase)
+    }
 
 }
