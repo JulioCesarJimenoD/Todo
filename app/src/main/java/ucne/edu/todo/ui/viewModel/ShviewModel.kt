@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import ucne.edu.todo.data.models.Prioridad
 import ucne.edu.todo.data.models.Tarea
+import ucne.edu.todo.data.remote.dto.TareaDto
+import ucne.edu.todo.data.repositories.Api_Repository.TareaApiRepository
 import ucne.edu.todo.data.repositories.DataRepository
 import ucne.edu.todo.data.repositories.TareaRepository
 import ucne.edu.todo.utils.Action
@@ -21,7 +23,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ShviewModel @Inject constructor(
     private val repository: TareaRepository,
-    private val dataRepository: DataRepository
+    private val dataRepository: DataRepository,
+    private val api: TareaApiRepository
 ) : ViewModel()
 {
     val action: MutableState<Action> = mutableStateOf(Action.NO_ACTION)
@@ -211,4 +214,28 @@ class ShviewModel @Inject constructor(
 
     fun validateFields(): Boolean =
         nombre.value.isNotEmpty() && descripcion.value.isNotEmpty()
+
+    fun update(id: String, tarea: TareaDto){
+        viewModelScope.launch {
+            api.updateAgenda(id, tarea)
+        }
+    }
+
+    fun searchById(id: String?){
+        viewModelScope.launch {
+            api.getAgenda(id)
+        }
+    }
+
+    fun save(tarea: TareaDto){
+        viewModelScope.launch {
+            api.insetAgenda(tarea)
+        }
+    }
+
+    fun deleteTarea(tarea: TareaDto){
+        viewModelScope.launch {
+            api.updateAgenda(tarea.tareaId.toString(),tarea)
+        }
+    }
 }

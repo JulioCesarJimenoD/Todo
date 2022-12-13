@@ -6,8 +6,7 @@ import ucne.edu.todo.data.models.Tarea
 import java.sql.RowId
 import javax.inject.Inject
 
-class TareaRepository @Inject
-constructor(private val tareaDao: TareaDao)
+class TareaRepository @Inject constructor(private val tareaDao: TareaDao)
 {
     val getAllTareas: Flow<List<Tarea>> = tareaDao.getAllTareas()
     val sortByPrioridadBaja: Flow<List<Tarea>> = tareaDao.sortByLowPriority()

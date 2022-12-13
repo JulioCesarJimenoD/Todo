@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import ucne.edu.todo.R.*
 import ucne.edu.todo.ui.theme.fabBackgroundColor
@@ -108,7 +109,8 @@ fun DisplaySnackBar(
             scope.launch {
                 val snackBarResult = scaffoldState.snackbarHostState.showSnackbar(
                     message = setMessage(action = action, tituloTarea = tituloTarea),
-                    actionLabel = setActionLabel(action = action)
+                    actionLabel = setActionLabel(action = action),
+
                 )
                 undoDeletedTask(
                     action = action,

@@ -30,7 +30,9 @@ object DataModule {
             "ToDo_db"
         ).fallbackToDestructiveMigration().build()
     }
-
+    @Singleton
+    @Provides
+    fun provideDao(database: TareaDatabase) = database.tareaDao
 
     @Singleton
     @Provides
@@ -49,12 +51,6 @@ object DataModule {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(TareaApi::class.java)
-    }
-
-    @Singleton
-    @Provides
-    fun ProvideTareaRepository(tareaDatabase: TareaDatabase): TareaApiRepository {
-        return TareaApiRepository(tareaDatabase)
     }
 
 }

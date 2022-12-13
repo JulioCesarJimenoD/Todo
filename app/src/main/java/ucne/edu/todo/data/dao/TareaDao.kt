@@ -3,8 +3,10 @@ package ucne.edu.todo.data.dao
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 import ucne.edu.todo.data.models.Tarea
+import javax.inject.Singleton
 
 @Dao
+@Singleton
 interface TareaDao {
     @Query("SELECT * FROM Tareas ORDER BY id ASC")
     fun getAllTareas(): Flow<List<Tarea>>

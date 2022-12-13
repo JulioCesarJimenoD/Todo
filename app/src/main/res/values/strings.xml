@@ -22,8 +22,8 @@
 
     <string name="add_task">Agregar Tarea</string>
     <string name="add_action">Agregar Action</string>
-    <string name="back_arrow">Atra Arrow</string>
-    <string name="delete_icon">Dorrar Icon</string>
+    <string name="back_arrow">Atras Arrow</string>
+    <string name="delete_icon">Borrar Icon</string>
     <string name="update_icon">Actualizar Icon</string>
     <string name="drop_down_arrow_icon">Icono de flecha desplegable</string>
 

@@ -1,11 +1,12 @@
 package ucne.edu.todo.data.repositories.Api_Repository
 
 import ucne.edu.todo.data.TareaDatabase
+import ucne.edu.todo.data.remote.TareaApi
 import ucne.edu.todo.data.remote.dto.TareaDto
 import javax.inject.Inject
 
 class TareaApiRepository @Inject constructor(
-    private val api: TareaDatabase
+    private val api: TareaApi
 ){
 
     suspend fun getAgendas(): List<TareaDto>{
